@@ -3,6 +3,11 @@ project(yextend)
 
 include_directories(${yextend_SOURCE_DIR} ${yextend_SOURCE_DIR}/libs)
 
+find_package(BZip2 REQUIRED)
+find_package(LibArchive REQUIRED)
+find_package(OpenSSL REQUIRED)
+find_package(ZLIB REQUIRED)
+
 add_executable(yextend
   libs/json.hpp
   wrapper.cpp
@@ -19,4 +24,13 @@ add_executable(yextend
   libs/pdf_font.cpp
 )
 
-target_link_libraries(yextend archive bz2 crypto pcrecpp uuid yara z)
+target_link_libraries(yextend
+  BZip2::BZip2
+  LibArchive::LibArchive
+  ZLIB::ZLIB
+  openssl::openssl
+
+  pcrecpp
+  uuid
+  yara
+)
