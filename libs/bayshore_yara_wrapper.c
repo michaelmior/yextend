@@ -70,6 +70,9 @@ char* identifiers[MAX_ARGS_IDENTIFIER + 1];
 char* ext_vars[MAX_ARGS_EXT_VAR + 1];
 char* modules_data[MAX_ARGS_EXT_VAR + 1];
 
+#define TRUE 1
+#define FALSE 0
+
 static int show_strings = TRUE;
 static int show_meta = TRUE;
 static int show_module_data = FALSE;
